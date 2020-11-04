@@ -3,13 +3,7 @@ import './index.scss'
 import { formMethods } from '@/mixins'
 import { validatorMobile } from '@/utils/formRules'
 import { signin } from '@/api/signin'
-import { mapState, mapActions, mapMutations } from 'vuex'
-
-interface StoreData {
-  token: string
-  name: string
-  mobile: string
-}
+import { set } from 'js-cookie'
 
 export default defineComponent({
   mixins: [formMethods],
@@ -32,24 +26,17 @@ export default defineComponent({
       loading: false
     }
   },
-  computed: {
-    ...mapState(['publicState'])
-  },
   methods: {
-    ...mapActions('publicState', ['test']),
-    ...mapMutations({
-      setData: 'publicState/setData'
-    }),
+    //登录
     async signin() {
-      this.test()
-      this.setData()
-      // const reslut = await this.validateForm('form')
-      // if (!reslut) return
-      // this.loading = true
-      // const data = await signin(this.formData)
-      // this.loading = false
-      // this.setData({ ...this.formData })
-      console.log(this.publicState)
+      const reslut = await this.validateForm('form')
+      if (!reslut) return
+      this.loading = true
+      const data = await signin(this.formData)
+      this.loading = false
+      if (!data) return
+      set('publicData', data)
+      this.$router.replace({ name: 'home' })
     }
   },
   render() {

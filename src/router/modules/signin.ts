@@ -1,5 +1,5 @@
 export default {
-  path: '/signin',
+  path: '/signin/:id?',
   name: 'signin',
   component: () => import('@/pages/signin'),
   meta: {

@@ -1,19 +1,21 @@
+import { ActionPayload, MutationPayload } from 'vuex'
 const namespaced = true
 
 const state = {
   token: '',
-  name: '',
-  mobile: ''
+  name: '1'
+  // mobile: ''
 }
 const mutation = {
-  setData() {
-    console.log(111)
+  setData(data: MutationPayload) {
+    console.log(data)
   }
 }
 
 const actions = {
-  test() {
-    console.log(111)
+  test({ commit }: any, data: ActionPayload) {
+    commit('setData', data)
+    console.log(data)
   }
 }
 

@@ -4,6 +4,8 @@ export default {
   component: () => import('@/pages/home'),
   meta: {
     title: '首页',
-    default: true
+    default: true,
+    sort: 0,
+    icon: 'iconfont icon-home'
   }
 }

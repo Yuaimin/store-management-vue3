@@ -4,5 +4,9 @@
     height: 31px;
     background: rgba(255, 255, 255, 0.2);
     margin: 16px 24px 16px;
+    @include flex;
   }
+}
+.menu-item {
+  margin-left: 10px;
 }
