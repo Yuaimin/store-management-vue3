@@ -24,6 +24,15 @@ export default {
       meta: {
         title: 'children'
       }
+    },
+    {
+      path: 'test',
+      name: `${name}-test`,
+      component: () => import('@/pages/children/views/test'),
+      meta: {
+        hidden: true,
+        title: 'test'
+      }
     }
   ])('children')
 }
