@@ -12,8 +12,8 @@ export default defineComponent({
     routes() {
       const routes = this.$router.options.routes
         .filter(item => item.path === '/')
-        .reduce((pre: Array<RouteRecordRaw>, next: any) => {
-          pre.push(...next.children)
+        .reduce((pre: Array<RouteRecordRaw>, next) => {
+          pre.push(...(next.children as RouteRecordRaw[]))
           return pre
         }, [])
         .filter((item: RouteRecordRaw) => item?.meta?.default)
