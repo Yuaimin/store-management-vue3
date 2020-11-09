@@ -12,7 +12,7 @@ export default defineComponent({
     routes() {
       const routes = this.$router.options.routes
         .filter(item => item.path === '/')
-        .reduce((pre: Array<RouteRecordRaw>, next) => {
+        .reduce((pre: Array<RouteRecordRaw>, next: RouteRecordRaw) => {
           pre.push(...(next.children as RouteRecordRaw[]))
           return pre
         }, [])
