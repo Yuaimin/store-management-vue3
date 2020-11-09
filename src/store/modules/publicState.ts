@@ -1,27 +1,18 @@
-import { ActionPayload, MutationPayload } from 'vuex'
+import { MutationPayload } from 'vuex'
+
 const namespaced = true
 
 const state = {
-  token: '',
-  name: '1'
-  // mobile: ''
+  token: ''
 }
-const mutation = {
-  setData(data: MutationPayload) {
-    console.log(data)
-  }
-}
-
-const actions = {
-  test({ commit }: any, data: ActionPayload) {
-    commit('setData', data)
-    console.log(data)
+const mutations = {
+  setData(state: any, data: MutationPayload) {
+    state.token = data
   }
 }
 
 export default {
   namespaced,
   state,
-  mutation,
-  actions
+  mutations
 }

@@ -10,8 +10,8 @@ export default defineComponent({
   data() {
     return {
       formData: {
-        mobile: '',
-        password: ''
+        mobile: '17600464168',
+        password: '123456'
       },
       rules: {
         mobile: [
