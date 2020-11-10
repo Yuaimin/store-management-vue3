@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default defineComponent({
   computed: {
@@ -9,9 +9,9 @@ export default defineComponent({
     console.log(this.token)
   },
   methods: {
-    ...mapMutations('publicState', ['setData']),
+    ...mapActions('publicState', ['SETDATA_ACTIONS']),
     test() {
-      this.setData(+new Date())
+      this.SETDATA_ACTIONS('4')
       console.log(this.token)
     }
   },
