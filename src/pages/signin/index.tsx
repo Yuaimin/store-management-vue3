@@ -3,7 +3,7 @@ import './index.scss'
 import { formMethods } from '@/mixins'
 import { validatorMobile } from '@/utils/formRules'
 import { signin } from '@/api/signin'
-import { set } from 'js-cookie'
+import { mapMutations } from 'vuex'
 
 export default defineComponent({
   mixins: [formMethods],
@@ -27,6 +27,7 @@ export default defineComponent({
     }
   },
   methods: {
+    ...mapMutations('publicState', ['setData']),
     //登录
     async signin() {
       const reslut = await this.validateForm('form')
@@ -35,7 +36,7 @@ export default defineComponent({
       const data = await signin(this.formData)
       this.loading = false
       if (!data) return
-      set('publicData', data)
+      this.setData(data)
       this.$router.replace({ name: 'home' })
     }
   },

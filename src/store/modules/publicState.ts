@@ -1,17 +1,28 @@
-import { ActionPayload, MutationPayload } from 'vuex'
+import { ActionPayload } from 'vuex'
+
+interface PublicData {
+  mobile: string
+  name: string
+  token: string
+}
 
 export default {
   namespaced: true,
   state: {
-    token: ''
+    token: '',
+    name: '',
+    mobile: ''
   },
   mutations: {
-    setData(state: { token: MutationPayload }, data: MutationPayload) {
-      state.token = data
+    setData(state: PublicData, data: PublicData) {
+      const { token, name, mobile } = data
+      state.token = token
+      state.name = name
+      state.mobile = mobile
     }
   },
   actions: {
-    SETDATA_ACTIONS(state: { commit: (arg0: string, arg1: ActionPayload) => void }, payload: ActionPayload) {
+    SETDATA_ACTIONS(state: { commit: (name: string, params: ActionPayload) => void }, payload: ActionPayload) {
       state.commit('setData', payload)
     }
   }
