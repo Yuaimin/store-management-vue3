@@ -1,28 +1,50 @@
 import { defineComponent } from 'vue'
-import { mapState, mapActions } from 'vuex'
 
 export default defineComponent({
-  computed: {
-    ...mapState('publicState', ['token'])
-  },
-  created() {
-    console.log(this.token)
-  },
-  methods: {
-    ...mapActions('publicState', ['SETDATA_ACTIONS']),
-    test() {
-      this.SETDATA_ACTIONS('4')
-      console.log(this.token)
-    }
-  },
+  methods: {},
   render() {
     return (
-      <div>
-        <a-button onClick={this.test}>test</a-button>
-        <div>
-          {[...Array(100).keys()].map(item => (
-            <div>{item}</div>
-          ))}
+      <div class="page">
+        <base-page-header />
+        <div class="page-container">
+          <a-row gutter={[16, 16]}>
+            <a-col span={6}>
+              <a-card hoverable>
+                <i class="iconfont icon-moneycollect" />
+                <span>3000</span>
+              </a-card>
+            </a-col>
+            <a-col span={6}>
+              <a-card hoverable>2</a-card>
+            </a-col>
+            <a-col span={6}>
+              <a-card hoverable>3</a-card>
+            </a-col>
+            <a-col span={6}>
+              <a-card hoverable>4</a-card>
+            </a-col>
+            <a-col span={24}>
+              <a-card hoverable>1</a-card>
+            </a-col>
+            <a-col span={12}>
+              <a-card hoverable>1</a-card>
+            </a-col>
+            <a-col span={6}>
+              <a-card hoverable>1</a-card>
+            </a-col>
+            <a-col span={6}>
+              <a-card hoverable>1</a-card>
+            </a-col>
+            <a-col span={8}>
+              <a-card hoverable>1</a-card>
+            </a-col>
+            <a-col span={8}>
+              <a-card hoverable>1</a-card>
+            </a-col>
+            <a-col span={8}>
+              <a-card hoverable>1</a-card>
+            </a-col>
+          </a-row>
         </div>
       </div>
     )
