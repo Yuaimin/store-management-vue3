@@ -7,7 +7,11 @@ export default defineComponent({
     }
   },
   render() {
-    const { pageTitle } = this
-    return <a-page-header title={pageTitle} />
+    const { pageTitle, $slots } = this
+    return (
+      <a-page-header title={pageTitle} extra={$slots.extra && $slots.extra()}>
+        {$slots.default && $slots.default()}
+      </a-page-header>
+    )
   }
 })
