@@ -1,9 +1,5 @@
 import axios from 'axios'
 import { message } from 'ant-design-vue'
-import { getJSON } from 'js-cookie'
-
-const data = getJSON('publicData')
-console.log(data)
 
 const MessageTotal = message
 

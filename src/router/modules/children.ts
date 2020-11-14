@@ -10,7 +10,7 @@ export default {
   },
   children: (name => [
     {
-      path: 'index',
+      path: 'index/:id?',
       name: `${name}-index`,
       component: () => import('@/pages/children/views'),
       meta: {

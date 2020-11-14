@@ -6,6 +6,6 @@ export default {
     title: '首页',
     default: true,
     sort: 0,
-    icon: 'iconfont icon-home'
+    icon: 'iconfont icon-dashboard'
   }
 }

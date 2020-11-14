@@ -1,6 +1,6 @@
 import { App } from 'vue'
 import basePageHeader from '@/components/basePageHeader'
-import { Layout, Button, Menu, Form, Input, PageHeader, Row, Col, Card } from 'ant-design-vue'
+import { Layout, Button, Menu, Form, Input, PageHeader, Row, Col, Card, Table, Tag } from 'ant-design-vue'
 
 export default {
   install(Vue: App) {
@@ -14,5 +14,7 @@ export default {
       .use(Row)
       .use(Col)
       .use(Card)
+      .use(Table)
+      .use(Tag)
   }
 }
