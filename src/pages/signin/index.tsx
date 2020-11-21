@@ -30,8 +30,8 @@ export default defineComponent({
     ...mapMutations('publicState', ['setData']),
     //登录
     async signin() {
-      const reslut = await this.validateForm('form')
-      if (!reslut) return
+      const result = await this.validateForm('form')
+      if (!result) return
       this.loading = true
       const data = await signin(this.formData)
       this.loading = false

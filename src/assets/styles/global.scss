@@ -14,6 +14,11 @@
 
 .page {
   &-container {
-    padding: 0 24px;
+    margin: 0 24px;
+    overflow: hidden;
+    &-filter {
+      background-color: #fff;
+      padding: 20px;
+    }
   }
 }

@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { message } from 'ant-design-vue'
+import router from '@/router'
+import store from '@/store'
 
 const MessageTotal = message
 
@@ -9,7 +11,7 @@ const http = axios.create({ baseURL })
 
 http.interceptors.request.use(
   config => {
-    // config.headers.Authorization = ''
+    config.headers.Authorization = (store.state as any).publicState.token
     return config
   },
   error => Promise.reject(error)
@@ -21,6 +23,7 @@ http.interceptors.response.use(
       data: { code, data, message }
     } = response
     if (code === 200) return data
+    else if (code === 401) router.push({ name: 'signin' })
 
     return MessageTotal.error(message) && null
   },
